@@ -31,10 +31,11 @@ app.get('/tweets', (req, res) => {
 app.listen(5000);
 
 function getTweets() {
+    const last10 = [];
     
     if (tweets.lenght === 0) {
         return [];
-    }
+    } else
     if (tweets.length > 10) {
         for (let i = tweets.length - 10; i < tweets.length; i++) {
             lastTweets(i);
@@ -45,8 +46,6 @@ function getTweets() {
             lastTweets(i);
         }
     }
-    
-    const last10 = [];
     
     function lastTweets(i) {
         const user = users.filter(element => element.username === tweets[i].username);
